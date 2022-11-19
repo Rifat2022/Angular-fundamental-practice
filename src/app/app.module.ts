@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { EventAppComponent } from './event-app.component';
-import { EventAddressComponent } from './events/event-address.component';
-import { EventDetailsComponent } from './events/event-details.component';
+import { EventListComponent } from './events/event-list.component';
+
+import { EventService } from './events/event.service';
 
 @NgModule({
   imports: [
@@ -11,11 +12,11 @@ import { EventDetailsComponent } from './events/event-details.component';
   ],
   declarations: [
     EventAppComponent, 
-    EventDetailsComponent, 
-    EventAddressComponent
+    EventListComponent
+    
   ],
   providers: [
-    
+   EventService
   ],
 
   bootstrap: [EventAppComponent]
