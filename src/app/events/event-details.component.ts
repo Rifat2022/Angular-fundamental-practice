@@ -10,8 +10,12 @@ import { Component } from "@angular/core";
 })
 export class EventDetailsComponent{
     currentCounter: any
+    displayDetails:boolean= false; 
     handleClickEvent(value:any){
         this.currentCounter = value;
+    }
+    toggleDisplay(){
+        this.displayDetails = !this.displayDetails
     }
     events = [
         {name:'Angular Connect', date: '9/26/2036', time: '10am', location: {address: '1 London Road ', city: 'London', country: 'England'}},
