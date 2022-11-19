@@ -4,8 +4,12 @@ import { Component } from "@angular/core";
     selector: 'event-details', 
     templateUrl: './event-details.component.html', 
     styles: [`
-        th, td {padding: 10px; font-size: 1em; border: 1px solid black}
-        th {font-size: 2em; color: green}
+         .legend span { padding-right:30px; }
+    .in-person { color: yellow; }
+    .online { color: red; }
+    .tbd { color: #335500; }
+    .thumbnail { margin-top:10px; padding-top:5px; }
+    .label { font-size:14px; margin-bottom:10px; display:inline-block; }
     `], 
 })
 export class EventDetailsComponent{
@@ -16,6 +20,15 @@ export class EventDetailsComponent{
     }
     toggleDisplay(){
         this.displayDetails = !this.displayDetails
+    }
+    getEventTitle(event: any){
+        if(event.format =='InPerson') 
+            return 'in-person'
+        else if(event.format =='Online')
+            return 'online'
+        else
+            return 'tbd'
+
     }
    events = [
         {name:'Angular Connect', date: '9/26/2036', time: '10am', location: {address: '1 London Road ', city: 'London', country: 'England'}, format:"InPerson"},
