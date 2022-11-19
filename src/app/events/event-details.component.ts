@@ -8,7 +8,8 @@ import { Component } from "@angular/core";
     `], 
 })
 export class EventDetailsComponent{
-     Event = {
+    currentCounter: any
+    event = {
         name:'ngConf 2025', 
         date: '3/1/2025', 
         time: '8am', 
@@ -17,5 +18,8 @@ export class EventDetailsComponent{
             city: 'Salt Lake City, UT', 
             country: 'USA'
         }
+    }
+    handleClickEvent(value:any){
+        this.currentCounter = value;
     }
 }

@@ -1,15 +1,18 @@
-<h3>Hello angular, I'm going to practice you</h3>
 <div>
-    <div style="margin-top:30px">
-        Event: {{Event.name}}
-      </div>
-      <div>
-        Date: {{Event.date}}
-      </div>
-      <div>
-        Time: {{Event.time}}
-      </div>
-      <div>
-        Address: <event-address  [address]="Event.location"></event-address> 
-      </div>
+  <div style="margin-top:30px">
+    Event: {{event.name}} 
+  </div>
+  <div>
+    Date: {{event.date}}
+  </div>
+  <div>
+    Time: {{event.time}}
+  </div>
+  <div>
+    Address: <event-address [location]="event.location" (setTimer)="handleClickEvent($event)"> </event-address>
+  </div>
+  <div>
+    <span *ngIf="this.currentCounter" style="color: red; font-size: 40px">You have clicked {{currentCounter}} from the child </span> 
+  </div>
 </div>
+

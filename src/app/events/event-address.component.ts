@@ -1,11 +1,21 @@
-import {Component, Input} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 @Component({
     selector: 'event-address', 
     template: `
-    <span> {{address.address}}, {{address.city}}, {{address.country}}</span>
+    <span> {{location.address}}, {{location.city}}, {{location.country}}</span>
+    <h2>{{counter}}</h2>
+    <button class="btn btn-primary" (click)="setDisplayCounter()" >Display counter</button>
 
     `
 })
 export class EventAddressComponent{
-    @Input() address: any
+    @Input() location: any
+    @Output() setTimer = new EventEmitter()
+    counter = 0
+    ngOnInit(){
+        setInterval(()=> this.counter++, 1000)
+    }
+    setDisplayCounter(){
+        this.setTimer.emit(this.counter)
+    }
 }
