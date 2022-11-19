@@ -1,18 +1,21 @@
 <div>
-  <div style="margin-top:30px">
-    Event: {{event.name}} 
-  </div>
-  <div>
-    Date: {{event.date}}
-  </div>
-  <div>
-    Time: {{event.time}}
-  </div>
-  <div>
-    Address: <event-address [location]="event.location" (setTimer)="handleClickEvent($event)"> </event-address>
-  </div>
-  <div>
-    <span *ngIf="this.currentCounter" style="color: red; font-size: 40px">You have clicked {{currentCounter}} from the child </span> 
-  </div>
+  <h3>all the events are listed below</h3>
+  <table>
+    <thead>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{event.name}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.time}}</td>
+        <td>{{event.location.address}}, {{event.location.city}}, {{event.location.country}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 

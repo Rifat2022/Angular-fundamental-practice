@@ -12,10 +12,16 @@ export class EventAddressComponent{
     @Input() location: any
     @Output() setTimer = new EventEmitter()
     counter = 0
+    intervelId: any
+    private stopper = false; 
     ngOnInit(){
-        setInterval(()=> this.counter++, 1000)
+        this.intervelId = setInterval(()=> this.counter++, 1000)
     }
     setDisplayCounter(){
         this.setTimer.emit(this.counter)
+    }
+    stopTimer(){
+        clearInterval(this.intervelId)
+        this.stopper = true
     }
 }
