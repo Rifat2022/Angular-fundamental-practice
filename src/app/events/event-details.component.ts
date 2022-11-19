@@ -23,11 +23,11 @@ export class EventDetailsComponent{
     }
     getEventTitle(event: any){
         if(event.format =='InPerson') 
-            return 'in-person'
+            return {color: 'yellow' }
         else if(event.format =='Online')
-            return 'online'
+            return {color: 'red'}
         else
-            return 'tbd'
+            return {color: 'blue'}
 
     }
    events = [
