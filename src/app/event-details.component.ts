@@ -23,6 +23,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class EventDetailsComponent {
   event:any
+  isDirty: boolean = true
   
   constructor(private eventService:EventService, private route:ActivatedRoute) {
     

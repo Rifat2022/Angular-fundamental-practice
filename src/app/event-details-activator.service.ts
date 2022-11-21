@@ -6,7 +6,9 @@ import {Router, CanActivate, ActivatedRouteSnapshot} from '@angular/router'
 export class EventDetailsActivator implements CanActivate {
     constructor(private eventService: EventService, private router: Router){}
     canActivate(route: ActivatedRouteSnapshot) {
-        let event = this.eventService.getEvent(+route.params['id'])
-        return !!event
+        const event = !!this.eventService.getEvent(+route.params['id'])
+        if(!event)
+            this.router.navigate(['/error'])
+        return event
     }
 }
