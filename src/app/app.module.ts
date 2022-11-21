@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { EventAppComponent } from './event-app.component';
-import { EventListComponent } from './events/event-list.component';
-
-import { EventService } from './events/event.service';
+import { EventService } from './event.service';
+import { EventsListComponent } from './events-list.component';
+import {RouterModule} from '@angular/router'
+import { appRoutes } from './routes';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule, 
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     EventAppComponent, 
-    EventListComponent
-    
+    EventsListComponent
+
   ],
   providers: [
    EventService
