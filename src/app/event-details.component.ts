@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router'
     <div>{{event.location.address}}, {{event.location.city}}, {{event.location.country}}</div>
    </div>
    <div class="back">
-    <button class="btn btn-primary" [routerLink]="['']" >Back to events</button>
+    <button class="btn btn-primary" [routerLink]="['/events']" >Back to events</button>
       
    </div>
   `,

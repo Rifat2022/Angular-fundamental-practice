@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EventDetailsActivator } from './event-details-activator.service';
 import { EventDetailsComponent } from './event-details.component';
 import { EventService } from './event.service';
+import { EventListResolver } from './events-list-resolver.service';
 import { EventsListComponent } from './events-list.component';
 
 import { appRoute } from './routes';
@@ -28,7 +29,8 @@ import { appRoute } from './routes';
     {
       provide:'canDeactiveEventDetails', 
       useValue: checkDirtyState
-    }
+    }, 
+    EventListResolver
   ],
   bootstrap: [ AppComponent ]
 })

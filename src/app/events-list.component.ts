@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { EventService } from './event.service'
-
+import {ActivatedRoute} from '@angular/router'
 @Component({
   selector: 'events-list',
   templateUrl: './events-list.component.html',
@@ -11,10 +11,11 @@ import { EventService } from './event.service'
 })
 export class EventsListComponent {
     events: any
-  constructor(private eventService:EventService) {
+  constructor(private eventService:EventService, private route: ActivatedRoute) {
     
   }
   ngOnInit() {
-    this.events = this.eventService.getEvents()
+    // this.events = this.eventService.getEvents()
+    this.events = this.route.snapshot.data['events']
   }
 }
