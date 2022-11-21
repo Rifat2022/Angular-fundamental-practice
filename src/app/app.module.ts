@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
+import { EventDetailsActivator } from './event-details-activator.service';
 import { EventDetailsComponent } from './event-details.component';
 import { EventService } from './event.service';
 import { EventsListComponent } from './events-list.component';
@@ -19,7 +20,7 @@ import { appRoute } from './routes';
   EventsListComponent,
    EventDetailsComponent
   ],
-  providers: [ EventService ],
+  providers: [ EventService, EventDetailsActivator ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
