@@ -1,3 +1,4 @@
+import { ElementSchemaRegistry } from '@angular/compiler'
 import {Injectable} from '@angular/core'
 import {Observable } from "rxjs/internal/Observable"
 import {Subject} from "rxjs/internal/Subject"
@@ -21,6 +22,10 @@ export class EventService {
         subject.complete();
     }, 2000)
     return subject
+  }
+  setEvent(event: any){
+    event.id = 99; 
+    this.EVENTS.push(event)
   }
   
 
