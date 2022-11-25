@@ -2,34 +2,52 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { EventService } from "./event.service";
 
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+
 @Component({
     selector: 'create-event',
     templateUrl: './create-event.component.html',
     styles: [`
         form { margin-top: 10px; }
-        label { display: block; }
-        .form-group { margin-top: 5px; }
+    label { display: block; }
+    .form-group { margin-top: 5px; }
+    em {color:#E05C65; padding-left:10px;}
+    .error input {background-color:#E3C3C5;}
     `]
 })
 export class CreateEventComponent {
-    name: string = ''
-    date: string = ''
-    time: string = ''
-    address: string = ''
-    city: string = ''
-    country: string = ''
-
+    eventForm!: FormGroup
+    location!: FormGroup
+    name: FormControl = new FormControl('', Validators.required)
+    date: FormControl = new FormControl('', Validators.required)
+    time: FormControl = new FormControl('', Validators.required)
+    address: FormControl = new FormControl('', Validators.required)
+    city: FormControl = new FormControl('', Validators.required)
+    country: FormControl = new FormControl('', [Validators.required, Validators.pattern('[A-Z]{2}')])
     constructor(
         private eventService: EventService,
         private router: Router,
     ) { }
+    ngOnInit() {
+        this.location = new FormGroup({
+            address: this.address,
+            city: this.city,
+            country: this.country,
+        })
+        this.eventForm = new FormGroup({
+            name: this.name,
+            date: this.date,
+            time: this.time,
+            location: this.location
+        })
+    }
 
     saveEvent(event: any) {
         this.eventService.setEvent(event)
         this.router.navigate(['/events'])
     }
 
-    cancel() {
+    cancel(form: FormGroup) {
         this.router.navigate(['/events'])
     }
 }

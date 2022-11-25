@@ -9,14 +9,16 @@ import { EventDetailsComponent } from './event-details.component';
 import { EventService } from './event.service';
 import { EventListResolver } from './events-list-resolver.service';
 import { EventsListComponent } from './events-list.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { appRoute } from './routes';
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule, 
     RouterModule.forRoot(appRoute), 
   ],
   declarations: [
