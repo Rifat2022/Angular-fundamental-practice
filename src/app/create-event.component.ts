@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
     selector: 'create-event',
     templateUrl: './create-event.component.html',
     styles: [`
-        form { margin-top: 10px; }
+        form { margin: 10px; }
     label { display: block; }
     .form-group { margin-top: 5px; }
     em {color:#E05C65; padding-left:10px;}

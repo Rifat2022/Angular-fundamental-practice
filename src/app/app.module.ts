@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { appRoute } from './routes';
+import { ProjectedContentComponent } from './Projected-content.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { appRoute } from './routes';
     EventsListComponent,
     EventDetailsComponent,
     ErrorComponent, 
-    CreateEventComponent
+    CreateEventComponent, 
+    ProjectedContentComponent, 
   ],
   providers: [
     EventService,

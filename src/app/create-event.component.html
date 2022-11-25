@@ -1,3 +1,4 @@
+
 <div>
   <form [formGroup]="eventForm" (ngSubmit)="saveEvent(eventForm.value)" novalidate>
     <div class="form-group" [ngClass]="{'error': name.invalid && name.touched}">
@@ -33,7 +34,9 @@
         <em *ngIf="country.value && country.errors?.pattern && country.touched">Must be a two-letter country code</em>
       </div>
     </div>
+    
     <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Save</button>
     <button type="button" class="btn btn-default" (click)="cancel(eventForm)">Cancel</button>
+  
   </form>
 </div>
